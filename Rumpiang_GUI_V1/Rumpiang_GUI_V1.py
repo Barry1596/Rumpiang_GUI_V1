@@ -4,9 +4,9 @@ matplotlib.use('Qt5Agg')
 from PyQt5 import QtCore, QtGui, QtWidgets
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
-from Rumpiang_GUI_Plot import Live_Plot_ATRH, Live_Plot_LinearDisplacement, Live_Plot_TemperaturMaterial
-from Rumpiang_GUI_Plot import Live_Battery_Plot_ATRH, Live_Battery_Plot_LinearDisplacement, Live_Battery_Plot_TemperaturMaterial 
-from Rumpiang_GUI_Plot import Static_Plot_ATRH, Static_Plot_LinearDisplacement, Static_Plot_TemperaturMaterial
+from Rumpiang_GUI_Plot import Live_Plot_ATRH, Live_Plot_LinearDisplacement, Live_Plot_StrainGauge, Live_Plot_TemperaturMaterial
+from Rumpiang_GUI_Plot import Live_Battery_Plot_ATRH, Live_Battery_Plot_LinearDisplacement, Live_Battery_Plot_StrainGauge, Live_Battery_Plot_TemperaturMaterial 
+from Rumpiang_GUI_Plot import Static_Plot_ATRH, Static_Plot_LinearDisplacement, Static_Plot_StrainGauge, Static_Plot_TemperaturMaterial
 
 
 
@@ -1044,6 +1044,24 @@ class Ui_MainWindow(object):
                 "LD3":0,
                 "LD4":0,
                 "LD_All":0,
+                "FSG1":0,
+                "FSG2":0,
+                "FSG3":0,
+                "FSG4":0,
+                "FSG_All":0,
+                "HSG1":0,
+                "HSG2":0,
+                "HSG3":0,
+                "HSG4":0,
+                "HSG5":0,
+                "HSG6":0,
+                "HSG7":0,
+                "HG8":0,
+                "HSG9":0,
+                "HSG10":0,
+                "HSG11":0,
+                "HSG12":0,
+                "HSG_All":0,
                 "TM1":0,
                 "TM2":0,
                 "TM_All":0
@@ -1072,16 +1090,16 @@ class Ui_MainWindow(object):
 
    def Live_LinearDisplacement(self, text):
         if text == 'Displacement 1':
-                self.configure_Live_Plot_LinearDisplacement(1,5,1,'Dispalcement 1',1,1,1,1)
+                self.configure_Live_Plot_LinearDisplacement(1,5,1,'Displacement 1',1,1,1,1)
                 self.zero_one_Index('LD1')
         elif text == 'Displacement 2':
-                self.configure_Live_Plot_LinearDisplacement(2,5,1,'Dispalcement 2',1,1,1,1)
+                self.configure_Live_Plot_LinearDisplacement(2,5,1,'Displacement 2',1,1,1,1)
                 self.zero_one_Index('LD2')
         elif text == 'Displacement 3':
-                self.configure_Live_Plot_LinearDisplacement(3,5,1,'Dispalcement 3',1,1,1,1)
+                self.configure_Live_Plot_LinearDisplacement(3,5,1,'Displacement 3',1,1,1,1)
                 self.zero_one_Index('LD3')
         elif text == 'Displacement 4':
-                self.configure_Live_Plot_LinearDisplacement(4,5,1,'Dispalcement 4',1,1,1,1)
+                self.configure_Live_Plot_LinearDisplacement(4,5,1,'Displacement 4',1,1,1,1)
                 self.zero_one_Index('LD4')
         elif text == 'Display All':
                 self.configure_Live_Plot_LinearDisplacement(1,5,1,'Displacement 1',0,0,1,1)
@@ -1089,6 +1107,80 @@ class Ui_MainWindow(object):
                 self.add_Live_Plot_LinearDisplacement(3,5,1,'Displacement 3',1,0,1,1)
                 self.add_Live_Plot_LinearDisplacement(4,5,1,'Displacement 4',1,1,1,1)
                 self.zero_one_Index('LD_All')
+
+#Live Plot Strain Gauge
+
+   def Live_FrameStrainGauge(self, text):
+        if text == 'FSG 1':
+                self.configure_Live_Plot_StrainGauge(1,5,1,'FSG 1',1,1,1,1)
+                self.zero_one_Index('FSG1')
+        elif text == 'FSG 2':
+                self.configure_Live_Plot_StrainGauge(2,5,1,'FSG 2',1,1,1,1)
+                self.zero_one_Index('FSG2')
+        elif text == 'FSG 3':
+                self.configure_Live_Plot_StrainGauge(3,5,1,'FSG 3',1,1,1,1)
+                self.zero_one_Index('FSG3')
+        elif text == 'FSG 4':
+                self.configure_Live_Plot_StrainGauge(4,5,1,'FSG 4',1,1,1,1)
+                self.zero_one_Index('FSG4')
+        elif text == 'Display All':
+                self.configure_Live_Plot_StrainGauge(1,5,1,'FSG 1',0,0,1,1)
+                self.add_Live_Plot_StrainGauge(2,5,1,'FSG 2',0,1,1,1)
+                self.add_Live_Plot_StrainGauge(3,5,1,'FSG 3',1,0,1,1)
+                self.add_Live_Plot_StrainGauge(4,5,1,'FSG 4',1,1,1,1)
+                self.zero_one_Index('FSG_All')
+                
+   def Live_HangerStrainGauge(self, text):
+        if text == 'HSG 1':
+                self.configure_Live_Plot_StrainGauge(5,5,1,'HSG 1',1,1,1,1)
+                self.zero_one_Index('HSG1')
+        elif text == 'HSG 2':
+                self.configure_Live_Plot_StrainGauge(6,5,1,'HSG 2',1,1,1,1)
+                self.zero_one_Index('HSG2')
+        elif text == 'HSG 3':
+                self.configure_Live_Plot_StrainGauge(4,5,1,'HSG 3',1,1,1,1)
+                self.zero_one_Index('HSG3')
+        elif text == 'HSG 4':
+                self.configure_Live_Plot_StrainGauge(2,5,1,'HSG 4',1,1,1,1)
+                self.zero_one_Index('HSG4')
+        elif text == 'HSG 5':
+                self.configure_Live_Plot_StrainGauge(3,5,1,'HSG 5',1,1,1,1)
+                self.zero_one_Index('HSG5')
+        elif text == 'HSG 6':
+                self.configure_Live_Plot_StrainGauge(4,5,1,'HSG 6',1,1,1,1)
+                self.zero_one_Index('HSG6')
+        elif text == 'HSG 7':
+                self.configure_Live_Plot_StrainGauge(2,5,1,'HSG 7',1,1,1,1)
+                self.zero_one_Index('HSG7')
+        elif text == 'HSG 8':
+                self.configure_Live_Plot_StrainGauge(3,5,1,'HSG 8',1,1,1,1)
+                self.zero_one_Index('HSG8')
+        elif text == 'HSG 9':
+                self.configure_Live_Plot_StrainGauge(4,5,1,'HSG 9',1,1,1,1)
+                self.zero_one_Index('HSG9')
+        elif text == 'HSG 10':
+                self.configure_Live_Plot_StrainGauge(2,5,1,'HSG 10',1,1,1,1)
+                self.zero_one_Index('HSG10')
+        elif text == 'HSG 11':
+                self.configure_Live_Plot_StrainGauge(3,5,1,'HSG 11',1,1,1,1)
+                self.zero_one_Index('HSG11')
+        elif text == 'HSG 12':
+                self.configure_Live_Plot_StrainGauge(4,5,1,'HSG 12',1,1,1,1)
+                self.zero_one_Index('HSG12')                 
+        elif text == 'Display All':
+                self.configure_Live_Plot_StrainGauge(2,5,1,'HSG 1',0,1,1,1)
+                self.add_Live_Plot_StrainGauge(3,5,1,'HSG 2',1,0,1,1)
+                self.add_Live_Plot_StrainGauge(4,5,1,'HSG 3',1,1,1,1)
+                self.add_Live_Plot_StrainGauge(2,5,1,'HSG 4',0,1,1,1)
+                self.add_Live_Plot_StrainGauge(3,5,1,'HSG 5',1,0,1,1)
+                self.add_Live_Plot_StrainGauge(4,5,1,'HSG 6',1,1,1,1)
+                self.add_Live_Plot_StrainGauge(2,5,1,'HSG 7',0,1,1,1)
+                self.add_Live_Plot_StrainGauge(3,5,1,'HSG 8',1,0,1,1)
+                self.add_Live_Plot_StrainGauge(4,5,1,'HSG 9',1,1,1,1)
+                self.add_Live_Plot_StrainGauge(2,5,1,'HSG 10',0,1,1,1)
+                self.add_Live_Plot_StrainGauge(3,5,1,'HSG 11',1,0,1,1)
+                self.add_Live_Plot_StrainGauge(4,5,1,'HSG 12',1,1,1,1)
+                self.zero_one_Index('HSG_All')
 
 #Live Plot Temperatur Material
 
@@ -1143,6 +1235,67 @@ class Ui_MainWindow(object):
         elif text == 'Display All':
                 print('LD_All')
                 self.zero_one_Index('LD_All')
+
+#History Plot Frame Strain Gauge
+
+   def History_StrainGauge(self, text):
+        if text == 'FSG 1':
+                print('FSG1')
+                self.zero_one_Index('FSG1')
+        elif text == 'FSG 2':
+                print('FSG2')
+                self.zero_one_Index('FSG2')
+        elif text == 'FSG 3':
+                print('FSG3')
+                self.zero_one_Index('FSG3')
+        elif text == 'FSG 4':
+                print('FSG4')
+                self.zero_one_Index('FSG4')
+        elif text == 'Display All':
+                print('FSG_All')
+                self.zero_one_Index('FSG_All')
+
+
+   def History_StrainGauge(self, text):                
+        if text == 'HSG 1':
+                print('HSG1')
+                self.zero_one_Index('HSG1')
+        elif text == 'HSG 2':
+                print('HSG2')
+                self.zero_one_Index('HSG2')
+        elif text == 'HSG 3':
+                print('HSG3')
+                self.zero_one_Index('HSG3')
+        elif text == 'HSG 4':
+                print('HSG4')
+                self.zero_one_Index('HSG4')
+        elif text == 'HSG 5':
+                print('HSG5')
+                self.zero_one_Index('HSG5')
+        elif text == 'HSG 6':
+                print('HSG6')
+                self.zero_one_Index('HSG6')
+        elif text == 'HSG 7':
+                print('HSG7')
+                self.zero_one_Index('HSG7')
+        elif text == 'HSG 8':
+                print('HSG8')
+                self.zero_one_Index('HSG8')
+        elif text == 'HSG 9':
+                print('HSG9')
+                self.zero_one_Index('HSG9')
+        elif text == 'HSG 10':
+                print('HSG10')
+                self.zero_one_Index('HSG10')
+        elif text == 'HSG 11':
+                print('HSG11')
+                self.zero_one_Index('HSG11')
+        elif text == 'HSG 12':
+                print('HSG12')
+                self.zero_one_Index('HSG12')                                                                        
+        elif text == 'Display All':
+                print('HSG_All')
+                self.zero_one_Index('HSG_All')
 
 #History Plot Temperatur Material
 
@@ -1199,6 +1352,81 @@ class Ui_MainWindow(object):
                 self.add_Battery_Plot_LinearDisplacement(4,5,1,'Displacement 4',1,1,1,1)
                 self.zero_one_Index('LD_All')
 
+#Battery Plot Strain Gauge
+
+   def Battery_FrameStrainGauge(self, text):
+        if text == 'FSG 1':
+                self.configure_Battery_Plot_FrameStrainGauge(1,5,1,'FSG 1',1,1,1,1)
+                self.zero_one_Index('FSG1')
+        elif text == 'FSG 2':
+                self.configure_Battery_Plot_FrameStrainGauge(2,5,1,'FSG 2',1,1,1,1)
+                self.zero_one_Index('FSG2')
+        elif text == 'FSG 3':
+                self.configure_Battery_Plot_FrameStrainGauge(2,5,1,'FSG 3',1,1,1,1)
+                self.zero_one_Index('FSG3')
+        elif text == 'FSG 4':
+                self.configure_Battery_Plot_FrameStrainGauge(2,5,1,'FSG 3',1,1,1,1)
+                self.zero_one_Index('FSG4')
+        elif text == 'Display All':
+                self.configure_Battery_Plot_FrameStrainGauge(1,5,1,'FSG 1',0,0,1,1)
+                self.add_Battery_Plot_FrameStrainGauge(2,5,1,'FSG 2',0,1,1,1)
+                self.add_Battery_Plot_FrmaeStrainGauge(3,5,1,'FSG 3',1,0,1,1)
+                self.add_Battery_Plot_FrameStrainGauge(4,5,1,'FSG 4',1,1,1,1)
+                self.zero_one_Index('FSG_All')
+
+   def Battery_FrameStrainGauge(self, text):
+        if text == 'HSG 1':
+                self.configure_Battery_Plot_HangerStrainGauge(2,5,1,'HSG 1',1,1,1,1)
+                self.zero_one_Index('SG5')
+        elif text == 'HSG 2':
+                self.configure_Battery_Plot_HangerStrainGauge(2,5,1,'HSG 2',1,1,1,1)
+                self.zero_one_Index('SG6')
+        elif text == 'HSG 3':
+                self.configure_Battery_Plot_HangerStrainGauge(2,5,1,'HSG 3',1,1,1,1)
+                self.zero_one_Index('SG7')
+        elif text == 'HSG 4':
+                self.configure_Battery_Plot_HangerStrainGauge(2,5,1,'HSG 4',1,1,1,1)
+                self.zero_one_Index('SG8')
+        elif text == 'HSG 5':
+                self.configure_Battery_Plot_HangerStrainGauge(2,5,1,'HSG 5',1,1,1,1)
+                self.zero_one_Index('SG9')
+        elif text == 'HSG 6':
+                self.configure_Battery_Plot_HangerStrainGauge(2,5,1,'HSG 6',1,1,1,1)
+                self.zero_one_Index('SG10')
+        elif text == 'HSG 7':
+                self.configure_Battery_Plot_HangerStrainGauge(2,5,1,'HSG 7',1,1,1,1)
+                self.zero_one_Index('SG11')
+        elif text == 'HSG 8':
+                self.configure_Battery_Plot_HangerStrainGauge(2,5,1,'HSG 8',1,1,1,1)
+                self.zero_one_Index('SG12')    
+        elif text == 'HSG 9':
+                self.configure_Battery_Plot_HangerStrainGauge(2,5,1,'HSG 9',1,1,1,1)
+                self.zero_one_Index('SG13')
+        elif text == 'HSG 10':
+                self.configure_Battery_Plot_HangerStrainGauge(2,5,1,'HSG 10',1,1,1,1)
+                self.zero_one_Index('SG14')
+        elif text == 'HSG 11':
+                self.configure_Battery_Plot_HangerStrainGauge(2,5,1,'HSG 11',1,1,1,1)
+                self.zero_one_Index('SG15')
+        elif text == 'HSG 12':
+                self.configure_Battery_Plot_HangerStrainGauge(2,5,1,'HSG 12',1,1,1,1)
+                self.zero_one_Index('SG16')     
+        elif text == 'Display All':
+                self.configure_Battery_HangerStrainGauge(2,5,1,'HSG 1',0,1,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(3,5,1,'HSG 2',1,0,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(4,5,1,'HSG 3',1,1,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(2,5,1,'HSG 4',0,1,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(3,5,1,'HSG 5',1,0,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(4,5,1,'HSG 6',1,1,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(2,5,1,'HSG 7',0,1,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(3,5,1,'HSG 8',1,0,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(4,5,1,'HSG 9',1,1,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(2,5,1,'HSG 10',0,1,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(3,5,1,'HSG 11',1,0,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(4,5,1,'HSG 12',1,1,1,1)
+                self.zero_one_Index('HSG_All')
+
+
 #Battery Plot Temperatur Material
 
    def Battery_TM(self, text):
@@ -1244,6 +1472,42 @@ class Ui_MainWindow(object):
                 self.Live_Plot_Time_LinearDisplacement(4,text,'Displacement 4')
         elif self.Index['LD_All']==1:
                 self.Live_Plot_Time_Multi_LinearDisplacement(text)
+        elif self.Index['FSG1']==1:
+                self.Live_Plot_Time_FrameStrainGauge(1,text,'FSG 1')
+        elif self.Index['FSG2']==1:
+                self.Live_Plot_Time_FrameStrainGauge(2,text,'FSG 2')
+        elif self.Index['FSG3']==1:
+                self.Live_Plot_Time_FrameStrainGauge(3,text,'FSG 3')
+        elif self.Index['FSG4']==1:
+                self.Live_Plot_Time_FrameStrainGauge(4,text,'FSG 4')
+        elif self.Index['FSG_All']==1:
+                self.Live_Plot_Time_Multi_FrameStrainGauge(text)
+        elif self.Index['HSG1']==1:
+                self.Live_Plot_Time_HangerStrainGauge(1,text,'HSG 1')
+        elif self.Index['HSG2']==1:
+                self.Live_Plot_Time_HangerStrainGauge(2,text,'HSG 2')
+        elif self.Index['HSG3']==1:
+                self.Live_Plot_Time_HangerStrainGauge(3,text,'HSG 3')
+        elif self.Index['HSG4']==1:
+                self.Live_Plot_Time_HangerStrainGauge(4,text,'HSG 4')
+        elif self.Index['HSG5']==1:
+                self.Live_Plot_Time_HangerStrainGauge(1,text,'HSG 5')
+        elif self.Index['HSG6']==1:
+                self.Live_Plot_Time_HangerStrainGauge(2,text,'HSG 6')
+        elif self.Index['HSG7']==1:
+                self.Live_Plot_Time_HangerStrainGauge(3,text,'HSG 7')
+        elif self.Index['HSG8']==1:
+                self.Live_Plot_Time_HangerStrainGauge(4,text,'HSG 8')
+        elif self.Index['HSG9']==1:
+                self.Live_Plot_Time_HangerStrainGauge(1,text,'HSG 9')
+        elif self.Index['HSG10']==1:
+                self.Live_Plot_Time_HangerStrainGauge(2,text,'HSG 10')
+        elif self.Index['HSG11']==1:
+                self.Live_Plot_Time_HangerStrainGauge(3,text,'HSG 11')
+        elif self.Index['HSG12']==1:
+                self.Live_Plot_Time_HangerStrainGauge(4,text,'HSG 12')
+        elif self.Index['HSG_All']==1:
+                self.Live_Plot_Time_Multi_HangerStrainGauge(text)
         elif self.Index['TM1']==1:
                 self.Live_Plot_Time_TemperaturMaterial(1,text,'Thermistor 1')
         elif self.Index['TM2']==1:
@@ -1282,6 +1546,38 @@ class Ui_MainWindow(object):
                 self.configure_Live_Plot_LinearDisplacement(ID,5,144,tittle,1,1,1,1)
         elif text == '1 day':
                 self.configure_Live_Plot_LinearDisplacement(ID,5,288,tittle,1,1,1,1)
+
+   def Live_Plot_Time_FrameStrainGauge(self, ID, text, tittle):
+        if text == '5 minutes':
+                self.configure_Live_Plot_FrameStrainGauge(ID,5,1,tittle,1,1,1,1)
+        elif text == '15 minutes':
+                self.configure_Live_Plot_FrameStrainGauge(ID,5,3,tittle,1,1,1,1)
+        elif text == '30 minutes':
+                self.configure_Live_Plot_FrameStrainGauge(ID,5,6,tittle,1,1,1,1)
+        elif text == '1 hour':
+                self.configure_Live_Plot_FrameStrainGauge(ID,5,12,tittle,1,1,1,1)
+        elif text == '4 hours':
+                self.configure_Live_Plot_FrameStrainGauge(ID,5,48,tittle,1,1,1,1)
+        elif text == '12 hours':
+                self.configure_Live_Plot_FrameStrainGauge(ID,5,144,tittle,1,1,1,1)
+        elif text == '1 day':
+                self.configure_Live_Plot_FrameStrainGauge(ID,5,288,tittle,1,1,1,1)
+
+   def Live_Plot_Time_StrainStrainGauge(self, ID, text, tittle):
+        if text == '5 minutes':
+                self.configure_Live_Plot_HangerStrainGauge(ID,5,1,tittle,1,1,1,1)
+        elif text == '15 minutes':
+                self.configure_Live_Plot_HangerStrainGauge(ID,5,3,tittle,1,1,1,1)
+        elif text == '30 minutes':
+                self.configure_Live_Plot_HangerStrainGauge(ID,5,6,tittle,1,1,1,1)
+        elif text == '1 hour':
+                self.configure_Live_Plot_HangerStrainGauge(ID,5,12,tittle,1,1,1,1)
+        elif text == '4 hours':
+                self.configure_Live_Plot_HangerStrainGauge(ID,5,48,tittle,1,1,1,1)
+        elif text == '12 hours':
+                self.configure_Live_Plot_HangerStrainGauge(ID,5,144,tittle,1,1,1,1)
+        elif text == '1 day':
+                self.configure_Live_Plot_HangerStrainGauge(ID,5,288,tittle,1,1,1,1)
 
    def Live_Plot_Time_TemperaturMaterial(self, ID, text, tittle):
         if text == '5 minutes':
@@ -1337,6 +1633,135 @@ class Ui_MainWindow(object):
                 self.add_Live_Plot_LinearDisplacement(3,5,288,'Displacement 3',1,0,1,1)
                 self.add_Live_Plot_LinearDisplacement(4,5,288,'Displacement 4',1,1,1,1)
 
+   def Live_Plot_Time_Multi_FrameStrainGauge(self, text):
+        if text == '5 minutes':
+                self.configure_Live_Plot_FrameStrainGauge(1,5,1,'FSG 1',0,0,1,1)
+                self.add_Live_Plot_FrameStrainGauge(2,5,1,'FSG 2',0,1,1,1)
+                self.add_Live_Plot_FrameStrainGauge(3,5,1,'FSG 3',1,0,1,1)
+                self.add_Live_Plot_FrameStrainGauge(4,5,1,'FSG 4',1,1,1,1)
+        elif text == '15 minutes':
+                self.configure_Live_Plot_FrameStrainGauge(1,5,3,'FSG 1',0,0,1,1)
+                self.add_Live_Plot_FrameStrainGauge(2,5,3,'FSG 2',0,1,1,1)
+                self.add_Live_Plot_FrameStrainGauge(3,5,3,'FSG 3',1,0,1,1)
+                self.add_Live_Plot_FrameStrainGauge(4,5,3,'FSG 4',1,1,1,1)
+        elif text == '30 minutes':
+                self.configure_Live_Plot_FrameStrainGauge(1,5,6,'FSG 1',0,0,1,1)
+                self.add_Live_Plot_FrameStrainGauge(2,5,6,'FSG 2',0,1,1,1)
+                self.add_Live_Plot_FrameStrainGauge(3,5,6,'FSG 3',1,0,1,1)
+                self.add_Live_Plot_FrameStrainGauge(4,5,6,'FSG 4',1,1,1,1)
+        elif text == '1 hour':
+                self.configure_Live_Plot_FrameStrainGauge(1,5,12,'FSG 1',0,0,1,1)
+                self.add_Live_Plot_FrameStrainGauge(2,5,12,'FSG 2',0,1,1,1)
+                self.add_Live_Plot_FrameStrainGauge(3,5,12,'FSG 3',1,0,1,1)
+                self.add_Live_Plot_FrameStrainGauge(4,5,12,'FSG 4',1,1,1,1)
+        elif text == '4 hour':
+                self.configure_Live_Plot_FrameStrainGauge(1,5,48,'FSG 1',0,0,1,1)
+                self.add_Live_Plot_FrameStrainGauge(2,5,48,'FSG 2',0,1,1,1)
+                self.add_Live_Plot_FrameStrainGauge(3,5,48,'FSG 3',1,0,1,1)
+                self.add_Live_Plot_FrameStrainGauge(4,5,48,'FSG 4',1,1,1,1)
+        elif text == '12 hour':
+                self.configure_Live_Plot_FrameStrainGauge(1,5,144,'FSG 1',0,0,1,1)
+                self.add_Live_Plot_FrameStrainGauge(2,5,144,'FSG 2',0,1,1,1)
+                self.add_Live_Plot_FrameStrainGauge(3,5,144,'FSG 3',1,0,1,1)
+                self.add_Live_Plot_FrameStrainGauge(4,5,144,'FSG 4',1,1,1,1)
+        elif text == '1 day':
+                self.configure_Live_Plot_FrameStrainGauge(1,5,288,'FSG 1',0,0,1,1)
+                self.add_Live_Plot_FrameStrainGauge(2,5,288,'FSG 2',0,1,1,1)
+                self.add_Live_Plot_FrameStrainGauge(3,5,288,'FSG 3',1,0,1,1)
+                self.add_Live_Plot_FrameStrainGauge(4,5,288,'FSG 4',1,1,1,1)
+
+   def Live_Plot_Time_Multi_HangerStrainGauge(self, text):
+        if text == '5 minutes':
+                self.configure_Live_Plot_HangerStrainGauge(1,5,1,'HSG 1',0,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(2,5,1,'HSG 2',0,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(3,5,1,'HSG 3',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(4,5,1,'HSG 4',1,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(5,5,1,'HSG 5',0,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(6,5,1,'HSG 6',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(7,5,1,'HSG 7',1,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(8,5,1,'HSG 8',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(9,5,1,'HSG 9',1,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(10,5,1,'HSG 10',0,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(11,5,1,'HSG 11',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(12,5,1,'HSG 12',1,1,1,1)
+        elif text == '15 minutes':
+                self.configure_Live_Plot_HangerStrainGauge(1,5,1,'HSG 1',0,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(2,5,1,'HSG 2',0,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(3,5,1,'HSG 3',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(4,5,1,'HSG 4',1,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(5,5,1,'HSG 5',0,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(6,5,1,'HSG 6',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(7,5,1,'HSG 7',1,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(8,5,1,'HSG 8',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(9,5,1,'HSG 9',1,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(10,5,1,'HSG 10',0,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(11,5,1,'HSG 11',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(12,5,1,'HSG 12',1,1,1,1)
+        elif text == '30 minutes':
+                self.configure_Live_Plot_HangerStrainGauge(1,5,1,'HSG 1',0,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(2,5,1,'HSG 2',0,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(3,5,1,'HSG 3',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(4,5,1,'HSG 4',1,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(5,5,1,'HSG 5',0,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(6,5,1,'HSG 6',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(7,5,1,'HSG 7',1,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(8,5,1,'HSG 8',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(9,5,1,'HSG 9',1,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(10,5,1,'HSG 10',0,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(11,5,1,'HSG 11',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(12,5,1,'HSG 12',1,1,1,1)
+        elif text == '1 hour':
+                self.configure_Live_Plot_HangerStrainGauge(1,5,1,'HSG 1',0,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(2,5,1,'HSG 2',0,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(3,5,1,'HSG 3',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(4,5,1,'HSG 4',1,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(5,5,1,'HSG 5',0,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(6,5,1,'HSG 6',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(7,5,1,'HSG 7',1,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(8,5,1,'HSG 8',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(9,5,1,'HSG 9',1,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(10,5,1,'HSG 10',0,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(11,5,1,'HSG 11',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(12,5,1,'HSG 12',1,1,1,1)
+        elif text == '4 hour':
+                self.configure_Live_Plot_HangerStrainGauge(1,5,1,'HSG 1',0,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(2,5,1,'HSG 2',0,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(3,5,1,'HSG 3',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(4,5,1,'HSG 4',1,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(5,5,1,'HSG 5',0,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(6,5,1,'HSG 6',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(7,5,1,'HSG 7',1,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(8,5,1,'HSG 8',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(9,5,1,'HSG 9',1,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(10,5,1,'HSG 10',0,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(11,5,1,'HSG 11',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(12,5,1,'HSG 12',1,1,1,1)
+        elif text == '12 hour':
+                self.configure_Live_Plot_HangerStrainGauge(1,5,1,'HSG 1',0,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(2,5,1,'HSG 2',0,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(3,5,1,'HSG 3',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(4,5,1,'HSG 4',1,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(5,5,1,'HSG 5',0,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(6,5,1,'HSG 6',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(7,5,1,'HSG 7',1,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(8,5,1,'HSG 8',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(9,5,1,'HSG 9',1,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(10,5,1,'HSG 10',0,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(11,5,1,'HSG 11',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(12,5,1,'HSG 12',1,1,1,1)
+        elif text == '1 day':
+                self.configure_Live_Plot_HangerStrainGauge(1,5,1,'HSG 1',0,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(2,5,1,'HSG 2',0,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(3,5,1,'HSG 3',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(4,5,1,'HSG 4',1,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(5,5,1,'HSG 5',0,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(6,5,1,'HSG 6',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(7,5,1,'HSG 7',1,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(8,5,1,'HSG 8',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(9,5,1,'HSG 9',1,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(10,5,1,'HSG 10',0,1,1,1)
+                self.add_Live_Plot_HangerStrainGauge(11,5,1,'HSG 11',1,0,1,1)
+                self.add_Live_Plot_HangerStrainGauge(12,5,1,'HSG 12',1,1,1,1)
 
    def Live_Plot_Time_Multi_TemperaturMaterial(self, text):
         if text == '5 minutes':
@@ -1378,6 +1803,24 @@ class Ui_MainWindow(object):
         self.plot.update_figure(ID, N_data, step, tittle)
         self.Live_Plot_Layout.addWidget(self.plot, cor_0, cor_1, cor_2, cor_3)
 
+   def configure_Live_Plot_FrameStrainGauge(self, ID, N_data, step, tittle, cor_0, cor_1, cor_2, cor_3):
+        for i in reversed(range(self.Live_Plot_Layout.count())):
+                self.Live_Plot_Layout.itemAt(i).widget().setParent(None)
+        
+        self.plot = Live_Plot_StrainGauge(self.Live_Plot_Widget)
+        self.plot.ubah_Parameter(ID, N_data, step, tittle)
+        self.plot.update_figure(ID, N_data, step, tittle)
+        self.Live_Plot_Layout.addWidget(self.plot, cor_0, cor_1, cor_2, cor_3)
+
+   def configure_Live_Plot_HangerStrainGauge(self, ID, N_data, step, tittle, cor_0, cor_1, cor_2, cor_3):
+        for i in reversed(range(self.Live_Plot_Layout.count())):
+                self.Live_Plot_Layout.itemAt(i).widget().setParent(None)
+        
+        self.plot = Live_Plot_StrainGauge(self.Live_Plot_Widget)
+        self.plot.ubah_Parameter(ID, N_data, step, tittle)
+        self.plot.update_figure(ID, N_data, step, tittle)
+        self.Live_Plot_Layout.addWidget(self.plot, cor_0, cor_1, cor_2, cor_3)
+
    def configure_Live_Plot_Temperatur_Material(self, ID, N_data, step, tittle, cor_0, cor_1, cor_2, cor_3):
         for i in reversed(range(self.Live_Plot_Layout.count())):
                 self.Live_Plot_Layout.itemAt(i).widget().setParent(None)
@@ -1407,6 +1850,18 @@ class Ui_MainWindow(object):
 
    def add_Live_Plot_LinearDisplacement(self, ID, N_data, step, tittle, cor_0,cor_1,cor_2,cor_3):
         self.plot = Live_Plot_LinearDisplacement(self.Live_Plot_Widget)
+        self.plot.ubah_Parameter(ID, N_data, step, tittle)
+        self.plot.update_figure(ID, N_data, step, tittle)
+        self.Live_Plot_Layout.addWidget(self.plot, cor_0,cor_1,cor_2, cor_3)
+
+   def add_Live_Plot_FrameStrainGauge(self, ID, N_data, step, tittle, cor_0,cor_1,cor_2,cor_3):
+        self.plot = Live_Plot_StrainGauge(self.Live_Plot_Widget)
+        self.plot.ubah_Parameter(ID, N_data, step, tittle)
+        self.plot.update_figure(ID, N_data, step, tittle)
+        self.Live_Plot_Layout.addWidget(self.plot, cor_0,cor_1,cor_2, cor_3)
+
+   def add_Live_Plot_HangerStrainGauge(self, ID, N_data, step, tittle, cor_0,cor_1,cor_2,cor_3):
+        self.plot = Live_Plot_StrainGauge(self.Live_Plot_Widget)
         self.plot.ubah_Parameter(ID, N_data, step, tittle)
         self.plot.update_figure(ID, N_data, step, tittle)
         self.Live_Plot_Layout.addWidget(self.plot, cor_0,cor_1,cor_2, cor_3)
@@ -1456,6 +1911,38 @@ class Ui_MainWindow(object):
             self.configure_HistoryPlot_LinearDisplacement(3,datetime_begin,datetime_end,1,'Displacement 3',1,1,1,1)
         elif self.Index['LD4'] == 1:
             self.configure_HistoryPlot_LinearDisplacement(4,datetime_begin,datetime_end,1,'Displacement 4',1,1,1,1)
+        elif self.Index['FSG1'] == 1:
+            self.configure_HistoryPlot_FrameStrainGauge(1,datetime_begin,datetime_end,1,'FSG 1',1,1,1,1)
+        elif self.Index['FSG2'] == 1:
+            self.configure_HistoryPlot_FrameStrainGauge(2,datetime_begin,datetime_end,1,'FSG 2',1,1,1,1)
+        elif self.Index['FSG3'] == 1:
+            self.configure_HistoryPlot_FrameStrainGauge(3,datetime_begin,datetime_end,1,'FSG 3',1,1,1,1)
+        elif self.Index['FSG4'] == 1:
+            self.configure_HistoryPlot_FrameStrainGauge(4,datetime_begin,datetime_end,1,'FSG 4',1,1,1,1)
+        elif self.Index['HSG1'] == 1:
+            self.configure_HistoryPlot_FrameStrainGauge(1,datetime_begin,datetime_end,1,'HSG 1',1,1,1,1)
+        elif self.Index['HSG2'] == 1:
+            self.configure_HistoryPlot_FrameStrainGauge(2,datetime_begin,datetime_end,1,'HSG 2',1,1,1,1)
+        elif self.Index['HSG3'] == 1:
+            self.configure_HistoryPlot_FrameStrainGauge(3,datetime_begin,datetime_end,1,'HSG 3',1,1,1,1)
+        elif self.Index['HSG4'] == 1:
+            self.configure_HistoryPlot_FrameStrainGauge(4,datetime_begin,datetime_end,1,'HSG 4',1,1,1,1)        
+        elif self.Index['HSG5'] == 1:
+            self.configure_HistoryPlot_FrameStrainGauge(1,datetime_begin,datetime_end,1,'HSG 5',1,1,1,1)
+        elif self.Index['HSG6'] == 1:
+            self.configure_HistoryPlot_FrameStrainGauge(2,datetime_begin,datetime_end,1,'HSG 6',1,1,1,1)
+        elif self.Index['HSG7'] == 1:
+            self.configure_HistoryPlot_FrameStrainGauge(3,datetime_begin,datetime_end,1,'HSG 7',1,1,1,1)
+        elif self.Index['HSG8'] == 1:
+            self.configure_HistoryPlot_FrameStrainGauge(4,datetime_begin,datetime_end,1,'HSG 8',1,1,1,1)        
+        elif self.Index['HSG9'] == 1:
+            self.configure_HistoryPlot_FrameStrainGauge(1,datetime_begin,datetime_end,1,'HSG 9',1,1,1,1)
+        elif self.Index['HSG10'] == 1:
+            self.configure_HistoryPlot_FrameStrainGauge(2,datetime_begin,datetime_end,1,'HSG 10',1,1,1,1)
+        elif self.Index['HSG11'] == 1:
+            self.configure_HistoryPlot_FrameStrainGauge(3,datetime_begin,datetime_end,1,'HSG 11',1,1,1,1)
+        elif self.Index['HSG12'] == 1:
+            self.configure_HistoryPlot_FrameStrainGauge(4,datetime_begin,datetime_end,1,'HSG 12',1,1,1,1)                        
         elif self.Index['TM1'] == 1:
             self.configure_HistoryPlot_TemperaturMaterial(1,datetime_begin,datetime_end,1,'Thermistor 1',1,1,1,1)
         elif self.Index['TM2'] == 1:
@@ -1526,6 +2013,26 @@ class Ui_MainWindow(object):
                 self.History_Plot_Layout.itemAt(i).widget().setParent(None)
 
         self.plot = Static_Plot_LinearDisplacement(self.History_Plot_Widget)
+        self.plot.ubah_Parameter_Static(ID, date_begin, date_end, step, title)
+        self.plot.update_figure_static(ID,date_begin,date_end,step,title)
+        self.History_Plot_Layout.addWidget(self.plot, cor_0, cor_1, cor_2, cor_3)
+
+   def configure_HistoryPlot_FrameStrainGauge(self,ID,date_begin,date_end,step,title,cor_0,cor_1,cor_2,cor_3):
+        
+        for i in reversed(range(self.History_Plot_Layout.count())): 
+                self.History_Plot_Layout.itemAt(i).widget().setParent(None)
+
+        self.plot = Static_Plot_StrainGauge(self.History_Plot_Widget)
+        self.plot.ubah_Parameter_Static(ID, date_begin, date_end, step, title)
+        self.plot.update_figure_static(ID,date_begin,date_end,step,title)
+        self.History_Plot_Layout.addWidget(self.plot, cor_0, cor_1, cor_2, cor_3)
+
+   def configure_HistoryPlot_HangerStrainGauge(self,ID,date_begin,date_end,step,title,cor_0,cor_1,cor_2,cor_3):
+        
+        for i in reversed(range(self.History_Plot_Layout.count())): 
+                self.History_Plot_Layout.itemAt(i).widget().setParent(None)
+
+        self.plot = Static_Plot_StrainGauge(self.History_Plot_Widget)
         self.plot.ubah_Parameter_Static(ID, date_begin, date_end, step, title)
         self.plot.update_figure_static(ID,date_begin,date_end,step,title)
         self.History_Plot_Layout.addWidget(self.plot, cor_0, cor_1, cor_2, cor_3)
@@ -1605,6 +2112,38 @@ class Ui_MainWindow(object):
                 self.configure_Battery_Plot_LinearDisplacement(ID,5,144,tittle,1,1,1,1)
         elif text == '1 day':
                 self.configure_Battery_Plot_LinearDisplacement(ID,5,288,tittle,1,1,1,1)
+
+   def Battery_Plot_Time_FrameStrainGauge(self, ID, text, tittle):
+        if text == '5 minutes':
+                self.configure_Battery_Plot_FrameStrainGauge(ID,5,1,tittle,1,1,1,1)
+        elif text == '15 minutes':
+                self.configure_Battery_Plot_FrameStrainGauge(ID,5,3,tittle,1,1,1,1)
+        elif text == '30 minutes':
+                self.configure_Battery_Plot_FrameStrainGauge(ID,5,6,tittle,1,1,1,1)
+        elif text == '1 hour':
+                self.configure_Battery_Plot_FrameStrainGauge(ID,5,12,tittle,1,1,1,1)
+        elif text == '4 hours':
+                self.configure_Battery_Plot_FrameStrainGauge(ID,5,48,tittle,1,1,1,1)
+        elif text == '12 hours':
+                self.configure_Battery_Plot_FrameStrainGauge(ID,5,144,tittle,1,1,1,1)
+        elif text == '1 day':
+                self.configure_Battery_Plot_FrameStrainGauge(ID,5,288,tittle,1,1,1,1)
+
+   def Battery_Plot_Time_HangerStrainGauge(self, ID, text, tittle):
+        if text == '5 minutes':
+                self.configure_Battery_Plot_HangerStrainGauge(ID,5,1,tittle,1,1,1,1)
+        elif text == '15 minutes':
+                self.configure_Battery_Plot_HangerStrainGauge(ID,5,3,tittle,1,1,1,1)
+        elif text == '30 minutes':
+                self.configure_Battery_Plot_HangerStrainGauge(ID,5,6,tittle,1,1,1,1)
+        elif text == '1 hour':
+                self.configure_Battery_Plot_HangerStrainGauge(ID,5,12,tittle,1,1,1,1)
+        elif text == '4 hours':
+                self.configure_Battery_Plot_HangerStrainGauge(ID,5,48,tittle,1,1,1,1)
+        elif text == '12 hours':
+                self.configure_Battery_Plot_HangerStrainGauge(ID,5,144,tittle,1,1,1,1)
+        elif text == '1 day':
+                self.configure_Battery_Plot_HangerStrainGauge(ID,5,288,tittle,1,1,1,1)
 
    def Battery_Plot_Time_TemperaturMaterial(self, ID, text, tittle):
         if text == '5 minutes':
@@ -1696,6 +2235,80 @@ class Ui_MainWindow(object):
                 self.add_Battery_Plot_LinearDisplacement(3,5,288,'Displacement 3',1,0,1,1)
                 self.add_Battery_Plot_LinearDisplacement(4,5,288,'Displacement 4',1,1,1,1)
 
+   def Battery_Plot_Time_Multi_FrameStrainGauge(self, text):
+        if text == '5 minutes':
+                self.configure_Battery_Plot_FrameStrainGauge(1,5,1,'FSG 1',0,0,1,1)
+                self.add_Battery_Plot_FrameStrainGauge(2,5,1,'FSG 2',0,1,1,1)
+                self.add_Battery_Plot_FrameStrainGauge(3,5,1,'FSG 3',1,0,1,1)
+                self.add_Battery_Plot_FrameStrainGauge(4,5,1,'FSG 4',1,1,1,1)
+        elif text == '15 minutes':
+                self.configure_Battery_Plot_FrameStrainGauge(1,5,3,'FSG 1',0,0,1,1)
+                self.add_Battery_Plot_FrameStrainGauge(2,5,3,'FSG 2',0,1,1,1)
+                self.add_Battery_Plot_FrameStrainGauge(3,5,3,'FSG 3',1,0,1,1)
+                self.add_Battery_Plot_FrameStrainGauge(4,5,3,'FSG 4',1,1,1,1)
+        elif text == '30 minutes':
+                self.configure_Battery_Plot_FrameStrainGauge(1,5,6,'FSG 1',0,0,1,1)
+                self.add_Battery_Plot_FrameStrainGauge(2,5,6,'FSG 2',0,1,1,1)
+                self.add_Battery_Plot_FrameStrainGauge(3,5,6,'FSG 3',1,0,1,1)
+                self.add_Battery_Plot_FrameStrainGauge(4,5,6,'FSG 4',1,1,1,1)
+        elif text == '1 hour':
+                self.configure_Battery_Plot_FrameStrainGauge(1,5,12,'FSG 1',0,0,1,1)
+                self.add_Battery_Plot_FrameStrainGauge(2,5,12,'FSG 2',0,1,1,1)
+                self.add_Battery_Plot_FrameStrainGauge(3,5,12,'FSG 3',1,0,1,1)
+                self.add_Battery_Plot_FrameStrainGauge(4,5,12,'FSG 4',1,1,1,1)
+        elif text == '4 hour':
+                self.configure_Battery_Plot_FrameStrainGauge(1,5,48,'FSG 1',0,0,1,1)
+                self.add_Battery_Plot_FrameStrainGauge(2,5,48,'FSG 2',0,1,1,1)
+                self.add_Battery_Plot_FrameStrainGauge(3,5,48,'FSG 3',1,0,1,1)
+                self.add_Battery_Plot_FrameStrainGauge(4,5,48,'FSG 4',1,1,1,1)
+        elif text == '12 hour':
+                self.configure_Battery_Plot_FrameStrainGauge(1,5,144,'FSG 1',0,0,1,1)
+                self.add_Battery_Plot_FrameStrainGauge(2,5,144,'FSG 2',0,1,1,1)
+                self.add_Battery_Plot_FrameStrainGauge(3,5,144,'FSG 3',1,0,1,1)
+                self.add_Battery_Plot_FrameStrainGauge(4,5,144,'FSG 4',1,1,1,1)
+        elif text == '1 day':
+                self.configure_Battery_Plot_FrameStrainGauge(1,5,288,'FSG 1',0,0,1,1)
+                self.add_Battery_Plot_FrameStrainGauge(2,5,288,'FSG 2',0,1,1,1)
+                self.add_Battery_Plot_FrameStrainGauge(3,5,288,'FSG 3',1,0,1,1)
+                self.add_Battery_Plot_FrameStrainGauge(4,5,288,'FSG 4',1,1,1,1)
+
+   def Battery_Plot_Time_Multi_HangerStrainGauge(self, text):
+        if text == '5 minutes':
+                self.configure_Battery_Plot_HangerStrainGauge(1,5,1,'HSG 1',0,0,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(2,5,1,'HSG 2',0,1,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(3,5,1,'HSG 3',1,0,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(4,5,1,'HSG 4',1,1,1,1)
+        elif text == '15 minutes':
+                self.configure_Battery_Plot_HangerStrainGauge(1,5,3,'HSG 1',0,0,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(2,5,3,'HSG 2',0,1,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(3,5,3,'HSG 3',1,0,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(4,5,3,'HSG 4',1,1,1,1)
+        elif text == '30 minutes':
+                self.configure_Battery_Plot_HangerStrainGauge(1,5,6,'HSG 1',0,0,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(2,5,6,'HSG 2',0,1,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(3,5,6,'HSG 3',1,0,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(4,5,6,'HSG 4',1,1,1,1)
+        elif text == '1 hour':
+                self.configure_Battery_Plot_HangerStrainGauge(1,5,12,'HSG 1',0,0,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(2,5,12,'HSG 2',0,1,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(3,5,12,'HSG 3',1,0,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(4,5,12,'HSG 4',1,1,1,1)
+        elif text == '4 hour':
+                self.configure_Battery_Plot_HangerStrainGauge(1,5,48,'HSG 1',0,0,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(2,5,48,'HSG 2',0,1,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(3,5,48,'HSG 3',1,0,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(4,5,48,'HSG 4',1,1,1,1)
+        elif text == '12 hour':
+                self.configure_Battery_Plot_HangerStrainGauge(1,5,144,'HSG 1',0,0,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(2,5,144,'HSG 2',0,1,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(3,5,144,'HSG 3',1,0,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(4,5,144,'HSG 4',1,1,1,1)
+        elif text == '1 day':
+                self.configure_Battery_Plot_HangerStrainGauge(1,5,288,'HSG 1',0,0,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(2,5,288,'HSG 2',0,1,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(3,5,288,'HSG 3',1,0,1,1)
+                self.add_Battery_Plot_HangerStrainGauge(4,5,288,'HSG 4',1,1,1,1)
+
    def Battery_Plot_Time_Multi_TemperaturMaterial(self, text):
         if text == '5 minutes':
                 self.configure_Battery_Plot_Temperatur_Material(1,5,1,'Thermistor 1',0,0,2,1)
@@ -1738,6 +2351,24 @@ class Ui_MainWindow(object):
         self.plot.update_figure(ID, N_data, step, tittle)
         self.Battery_Plot_Layout.addWidget(self.plot, cor_0, cor_1, cor_2, cor_3)
 
+   def configure_Battery_Plot_FrameStrainGauge(self, ID, N_data, step, tittle, cor_0, cor_1, cor_2, cor_3):
+        for i in reversed(range(self.Battery_Plot_Layout.count())):
+                self.Battery_Plot_Layout.itemAt(i).widget().setParent(None)
+        
+        self.plot = Live_Battery_Plot_StrainGauge(self.Battery_Plot_Widget)
+        self.plot.ubah_Parameter(ID, N_data, step, tittle)
+        self.plot.update_figure(ID, N_data, step, tittle)
+        self.Battery_Plot_Layout.addWidget(self.plot, cor_0, cor_1, cor_2, cor_3)
+
+   def configure_Battery_Plot_HangerStrainGauge(self, ID, N_data, step, tittle, cor_0, cor_1, cor_2, cor_3):
+        for i in reversed(range(self.Battery_Plot_Layout.count())):
+                self.Battery_Plot_Layout.itemAt(i).widget().setParent(None)
+        
+        self.plot = Live_Battery_Plot_StrainGauge(self.Battery_Plot_Widget)
+        self.plot.ubah_Parameter(ID, N_data, step, tittle)
+        self.plot.update_figure(ID, N_data, step, tittle)
+        self.Battery_Plot_Layout.addWidget(self.plot, cor_0, cor_1, cor_2, cor_3)
+
    def configure_Battery_Plot_Temperatur_Material(self, ID, N_data, step, tittle, cor_0, cor_1, cor_2, cor_3):
         for i in reversed(range(self.Battery_Plot_Layout.count())):
                 self.Battery_Plot_Layout.itemAt(i).widget().setParent(None)
@@ -1757,6 +2388,18 @@ class Ui_MainWindow(object):
 
    def add_Battery_Plot_LinearDisplacement(self, ID, N_data, step, tittle, cor_0,cor_1,cor_2,cor_3):
         self.plot = Live_Battery_Plot_LinearDisplacement(self.Live_Plot_Widget)
+        self.plot.ubah_Parameter(ID, N_data, step, tittle)
+        self.plot.update_figure(ID, N_data, step, tittle)
+        self.Live_Plot_Layout.addWidget(self.plot, cor_0,cor_1,cor_2, cor_3)
+
+   def add_Battery_Plot_FrameStrainGauge(self, ID, N_data, step, tittle, cor_0,cor_1,cor_2,cor_3):
+        self.plot = Live_Battery_Plot_StrainGauge(self.Live_Plot_Widget)
+        self.plot.ubah_Parameter(ID, N_data, step, tittle)
+        self.plot.update_figure(ID, N_data, step, tittle)
+        self.Live_Plot_Layout.addWidget(self.plot, cor_0,cor_1,cor_2, cor_3)
+
+   def add_Battery_Plot_HangerStrainGauge(self, ID, N_data, step, tittle, cor_0,cor_1,cor_2,cor_3):
+        self.plot = Live_Battery_Plot_StrainGauge(self.Live_Plot_Widget)
         self.plot.ubah_Parameter(ID, N_data, step, tittle)
         self.plot.update_figure(ID, N_data, step, tittle)
         self.Live_Plot_Layout.addWidget(self.plot, cor_0,cor_1,cor_2, cor_3)

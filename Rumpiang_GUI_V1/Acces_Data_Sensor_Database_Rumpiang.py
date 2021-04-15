@@ -262,7 +262,114 @@ class AccesLiveData_DataBase():
             LD4_time = self.ConvertDatetime_Time(LD4_time)
             return[LD4_time, LD4_Disp, LD4_Bat]
     
+    def Acces_StrainGauge(self):
+        #Acces SG
+        SG1_time = []
+        SG1_Disp = []
 
+        SG2_time = []
+        SG2_Disp = []
+
+        SG3_time = []
+        SG3_Disp = []
+
+        SG4_time = []
+        SG4_Disp = []
+
+        SG1_Bat = []
+        SG2_Bat = []
+        SG3_Bat = []
+        SG4_Bat = []
+
+        count_1 = 0
+        count_2 = 0
+        count_3 = 0
+        count_4 = 0
+
+        datetime_now = datetime.datetime.now().replace(microsecond=0,second=0)
+        datetime_list = [datetime_now - datetime.timedelta(minutes=self.step*x) for x in range(self.N_data)]
+
+
+        for i in range(len(data)):
+            Node_id = data[i][1]
+            if Node_id == 5: 
+                t = data[i][2]
+                for j in range(len(datetime_list)):
+                    if t == datetime_list[j]:
+
+                        D = data[i][4]
+                        B = data[i][3]
+
+                        SG1_time.append(t)
+                        SG1_Disp.append(D)
+                        SG1_Bat.append(B)
+
+                        count_1 = count_1 + 1
+
+            elif Node_id == 6:
+                t = data[i][2]
+                for j in range(len(datetime_list)):
+                    if t == datetime_list[j]:
+
+                        D = data[i][4]
+                        B = data[i][3]
+
+                        SG2_time.append(t)
+                        SG2_Disp.append(D)
+                        SG2_Bat.append(B)
+
+                        count_2 = count_2 + 1
+            
+            elif Node_id == 7:
+                t = data[i][2]
+                for j in range(len(datetime_list)):
+                    if t == datetime_list[j]:
+
+                        D = data[i][4]
+                        B = data[i][3]
+
+                        SG3_time.append(t)
+                        SG3_Disp.append(D)
+                        SG3_Bat.append(B)
+
+                        count_3 = count_3 + 1
+            
+            elif Node_id == 8:
+                t = data[i][2]
+                for j in range(len(datetime_list)):
+                    if t == datetime_list[j]:
+
+                        D = data[i][4]
+                        B = data[i][3]
+
+                        SG4_time.append(t)
+                        SG4_Disp.append(D)
+                        SG4_Bat.append(B)
+
+                        count_4 = count_4 + 1
+            
+            if self.ID == 1 and count_1 == self.N_data:
+                break
+            elif self.ID == 2 and count_2 == self.N_data:
+                break
+            elif self.ID == 3 and count_3 == self.N_data:
+                break
+            elif self.ID == 4 and count_4 == self.N_data:
+                break
+
+        if self.ID == 1:
+            SG1_time = self.ConvertDatetime_Time(SG1_time)
+            return[SG1_time, SG1_Disp, SG1_Bat]
+        elif self.ID == 2:
+            SG2_time = self.ConvertDatetime_Time(SG2_time)
+            return[SG2_time, SG2_Disp, SG2_Bat]
+        elif self.ID == 3:
+            SG3_time = self.ConvertDatetime_Time(SG3_time)
+            return[SG3_time, SG3_Disp, SG3_Bat]
+        elif self.ID == 4:    
+            SG4_time = self.ConvertDatetime_Time(SG4_time)
+            return[SG4_time, SG4_Disp, SG4_Bat]
+ 
     def Acces_TemperatureMaterial(self):
         #Acces Temperature Material
         TM1_time = []
@@ -331,7 +438,6 @@ class AccesLiveData_DataBase():
             datetime_ = datetime_[1]
             time.append(datetime_)
         return(time)
-
 
 class AccesHistoryData_DataBase():
     
@@ -489,6 +595,63 @@ class AccesHistoryData_DataBase():
         elif self.ID == 4:    
             LD4_time = self.ConvertDatetime_Time(LD4_time)
             return[LD4_time, LD4_Disp]
+
+    def Acces_StrainGauge(self):
+        SG1_time = []
+        SG1_Disp = []
+
+        SG2_time = []
+        SG2_Disp = []
+
+        SG3_time = []
+        SG3_Disp = []
+
+        SG4_time = []
+        SG4_Disp = []
+
+        start_datetime = datetime.datetime.strptime(self.datetime_begin, '%Y-%m-%d %H:%M:%S').replace(microsecond=0, second=0)
+        end_datetime = datetime.datetime.strptime(self.datetime_end, '%Y-%m-%d %H:%M:%S').replace(microsecond=0, second=0)
+        step_datetime = datetime.timedelta(minutes=self.step)
+
+        datetime_list = []
+
+        while start_datetime <= end_datetime:
+            datetime_list.append(end_datetime)
+            end_datetime -= step_datetime
+
+        for i in range(len(data)):
+            Node_id = data[i][1]
+            t = data[i][2]
+            for j in range(len(datetime_list)):
+                if Node_id == 5 and t == datetime_list[j]:
+                    D = data[i][4]
+                    SG1_time.append(t)
+                    SG1_Disp.append(D)
+                elif Node_id == 6 and t == datetime_list[j]:
+                    D = data[i][4]
+                    SG2_time.append(t)
+                    SG2_Disp.append(D)
+                elif Node_id == 7 and t == datetime_list[j]:
+                    D = data[i][4]
+                    SG3_time.append(t)
+                    SG3_Disp.append(D)
+                elif Node_id == 8 and t == datetime_list[j]:
+                    D = data[i][4]
+                    SG4_time.append(t)
+                    SG4_Disp.append(D)
+    
+        if self.ID == 1:
+            SG1_time = self.ConvertDatetime_Time(SG1_time)
+            return[SG1_time, SG1_Disp]
+        elif self.ID == 2:
+            SG2_time = self.ConvertDatetime_Time(SG2_time)
+            return[SG2_time, SG2_Disp]
+        elif self.ID == 3:
+            SG3_time = self.ConvertDatetime_Time(SG3_time)
+            return[SG3_time, SG3_Disp]
+        elif self.ID == 4:    
+            SG4_time = self.ConvertDatetime_Time(SG4_time)
+            return[SG4_time, SG4_Disp]
     
     def Acces_TemperaturMaterial(self):
         TM1_time = []
@@ -535,13 +698,3 @@ class AccesHistoryData_DataBase():
             datetime_ = datetime_[1]
             time.append(datetime_)
         return(time)
-
-                
-
-        
-date_begin = '2021-02-05 14:00:00'
-date_end = '2021-02-05 17:00:00'
-
-a = AccesHistoryData_DataBase(1,date_begin,date_end, 15).Acces_TemperaturMaterial()
-
-print(a)
