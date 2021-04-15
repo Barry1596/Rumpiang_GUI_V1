@@ -117,6 +117,32 @@ class Live_Plot_LinearDisplacement(Canvas):
         self.axes.plot(a,l,'r')
         self.draw()
 
+class Live_Plot_StrainGauge(Canvas):
+    def __init__(self, ID):
+        Canvas.__init__(self, ID)
+        self.ID = ID 
+
+    def ubah_Parameter(self, ID, N_data, step, title):
+        self.ID = ID
+        self.N_data = N_data
+        self.step = step
+        self.title = title
+
+        timer = QtCore.QTimer(self)
+        timer.timeout.connect(lambda:self.update_figure(self.ID, self.N_data, self.step, self.title))
+        timer.start(60000)
+
+    def update_figure(self, ID, N_data, step, title):
+        data = AccesLiveData_API(ID,N_data,step).Acces_StrainGauge()
+        l = data[1]
+        a = data[0]
+        self.axes.cla()
+        self.axes.set_xlabel('Time')
+        self.axes.set_ylabel('Strain [μS]')
+        self.axes.set_title(title)
+        self.axes.plot(a,l,'r')
+        self.draw()
+
 class Live_Plot_TemperaturMaterial(Canvas):
     def __init__(self, ID):
         Canvas.__init__(self, ID)
@@ -189,6 +215,33 @@ class Live_Battery_Plot_LinearDisplacement(Canvas):
 
     def update_figure(self, ID, N_data, step, title):
         data = AccesLiveData_API(ID,N_data,step).Acces_LinearDisplacement()
+        l = data[2]
+        a = data[0]
+        self.axes.cla()
+        self.axes.set_xlabel('Time')
+        self.axes.set_ylabel('Voltage [V]')
+        self.axes.set_title(title)
+        self.axes.plot(a,l,'r')
+        self.draw()
+
+class Live_Battery_Plot_StrainGauge(Canvas):
+    
+    def __init__(self, ID):
+        Canvas.__init__(self, ID)
+        self.ID = ID 
+
+    def ubah_Parameter(self, ID, N_data, step, title):
+        self.ID = ID
+        self.N_data = N_data
+        self.step = step
+        self.title = title
+
+        timer = QtCore.QTimer(self)
+        timer.timeout.connect(lambda:self.update_figure(self.ID, self.N_data, self.step, self.title))
+        timer.start(12000)
+
+    def update_figure(self, ID, N_data, step, title):
+        data = AccesLiveData_API(ID,N_data,step).Acces_StrainGauge()
         l = data[2]
         a = data[0]
         self.axes.cla()
@@ -322,6 +375,34 @@ class Static_Plot_LinearDisplacement(Canvas):
         self.axes.cla()
         self.axes.set_xlabel('Time')
         self.axes.set_ylabel('Displacement [mm]')
+        self.axes.set_title(title)
+        self.axes.plot(a,l)
+        self.draw()
+
+class Static_Plot_StrainGauge(Canvas):
+    
+    def __init__(self, ID):
+        Canvas.__init__(self, ID)
+        self.ID = ID 
+
+    def ubah_Parameter_Static(self, ID, date_begin, date_end, step, title):
+        self.ID = ID
+        self.date_begin = date_begin
+        self.date_end = date_end
+        self.step = step
+        self.title = title
+
+        timer = QtCore.QTimer(self)
+        timer.timeout.connect(lambda:self.update_figure_static(self.ID, self.date_begin, self.date_end,self.step, self.title))
+        timer.start(12000000)
+        
+    def update_figure_static(self, ID, date_begin, date_end, step, title):
+        data = AccesHistoryData_API(ID, date_begin, date_end, step).Acces_StrainGauge()
+        l = data[1]
+        a = data[0]
+        self.axes.cla()
+        self.axes.set_xlabel('Time')
+        self.axes.set_ylabel('Strain [μS]')
         self.axes.set_title(title)
         self.axes.plot(a,l)
         self.draw()
